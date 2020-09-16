@@ -1,0 +1,90 @@
+/* ESTILOS UTILISADOS */
+
+body {
+  padding-bottom: 3rem ;
+  color: #5a5a5a;
+  background-color: #e1e1d0;
+}
+
+/* ajustando a nav bar */
+.nav-color {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.sobreposicao-navbar {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+}
+
+/* CUSTUMIZAÇÃO DO CAROUSEL */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+/* ajuste das legendas do caroUsel */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+/* Declarando as alturas das imgs */
+.carousel-item {
+  height: 32rem;
+  background-color: #777;
+}
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
+}
+
+/* CUSTUMIZAÇÃO DO MARKETING 
+------------------------------------------------------------*/
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: 400;
+}
+.marketing .col-lg-4 p {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+/* FEATURES 
+------------------------------------------------------------*/
+.featurette-divider {
+  margin: 5rem 0; /* Da o espaçamento do elemento <hr> */
+}
+
+/* Afina o cabeçalho das features */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.05rem;
+}
+
+/* CSS - RESPONSIVE 
+-------------------------------------------------------------*/
+@media (min-width: 40em){
+/* aumenta o tamanho do conteúdo dentro do carousel */
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
