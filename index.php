@@ -8,6 +8,7 @@ use Classes\Usuario;
 /* API RESTFul em PHP puro */
 
 //Informa para o cliente que será retornado JSON
+header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
 
 //Captura os parâmetros
