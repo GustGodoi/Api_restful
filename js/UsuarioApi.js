@@ -2,7 +2,6 @@ function getUsuarios() {
     var data = new FormData();
 
     var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
@@ -36,25 +35,17 @@ function inserirLinha(usuario) {
 
 }
 
-function adicionarUsuarios() {
+function adicionarUsuarios(objUsuario) {
     var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function () {
         if (this.readyState === 4) {
             var usuarios = JSON.parse(this.responseText);
-            //Faça algo
-        }
+            getUsuarios();
+        }   
     });
 
     xhr.open("POST", "http://localhost:8080");
 
-    var json = {
-        "nome": "eve.holt@reqres.in",
-        "email": "cityslicka",
-        "login": "12255",
-        "senha": "1222"
-    };
-
-    xhr.send(JSON.stringify(json));
+    xhr.send(JSON.stringify(objUsuario));
 }

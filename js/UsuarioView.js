@@ -49,11 +49,11 @@ function validarUsuario(acao) {
     let email = document.getElementById('email');
     let login = document.getElementById('login');
     let senha = document.getElementById('senha');
-    let validarSenha = document.getElementById('validarSenha');
+    let validarSenha = document.getElementById('senhaValidar');
 
     if (acao === 'add') {
         let dadosValidos = true;
-
+        alert("Usuário inserido com sucesso!!")
         if (nome.value == '') {
             dadosValidos = false;
             alert('Preencha o campo nome');
@@ -65,10 +65,11 @@ function validarUsuario(acao) {
             alert('Preencha o campo login');            
         } else {
             if(senha.value != '') {
-                if (validarSenha.value == senha.value) {
-                    if(senha.value.length > 6){
+                if (senhaValidar.value == senha.value) {
+                    
+                    if(senha.value.length < 6){
                         dadosValidos = false;
-                        alert('A precisa ao menos 6 carcteres');                
+                        alert('A senha precisa ter ao menos 6 carcteres');                
                     }
                 } else {
                     dadosValidos = false;
@@ -95,5 +96,5 @@ function validarUsuario(acao) {
 }
 
 window.onload = function(){
-    this.getUsuarios();
+    getUsuarios();
 }
