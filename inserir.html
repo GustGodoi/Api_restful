@@ -47,25 +47,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <!-- Formulário -->
-                <form>
+                <form action="" method="post" onsubmit="return validarUsuario('add')">
                     <div class="form-group">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo"/>
+                        <input type="hidden" name="codigo" id="codigo" value=""/>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">E-mail</label>
-                        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Seu email">
+                        <label for="email">E-mail</label>
+                        <input class="form-control" aria-describedby="emailHelp" placeholder="Seu email" type="text" name="email" id="email">
                     </div>
                     <div class="form-group">
-                        <label for="idade">Login</label>
-                        <input type="text" class="form-control" placeholder="Login">
+                        <label for="login">Login</label>
+                        <input type="text" class="form-control" placeholder="Login" name="login" id="login">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Senha</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                        <label for="senha">Senha</label>
+                        <input type="password" class="form-control" placeholder="Senha" name="senha" id="senha">
                     </div>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <div class="form-group">
+                        <label for="senhaValidar">Confirme a senha</label>
+                        <input type="password" class="form-control" placeholder="Validação de senha" name="senhaValidar" id="senhaValidar">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
             </div>
         </div>

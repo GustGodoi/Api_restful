@@ -21,19 +21,24 @@ function exibirUsuarios(usuarios) {
     inserirLinha(usuarios[0]);
 }
 
-function inserirLinha(usuario) {
-    var tabela = document.getElementById("tabelaDados");
-    var numLinhas = tabela.rows.length;
-    //var numCols = tabela.rows[numLinhas - 1].cells.length;
-    var novaLinha = tabela.insertRow(numLinhas);
+// function inserirLinha(usuario) {
+//     var tabela = document.getElementById("tabelaDados");
+//     var numLinhas = tabela.rows.length;
+//     //var numCols = tabela.rows[numLinhas - 1].cells.length;
+//     var novaLinha = tabela.insertRow(numLinhas);
 
-    var celNome = novaLinha.insertCell(0);
-    celNome.innerHTML = usuario.nome;
+//     var celNome = novaLinha.insertCell(0);
+//     celNome.innerHTML = usuario.nome;
 
-    var celEmail = novaLinha.insertCell(1);
-    celEmail.innerHTML = usuario.email;
+//     var celEmail = novaLinha.insertCell(1);
+//     celEmail.innerHTML = usuario.email;
 
-}
+//     var celEmail = novaLinha.insertCell(1);
+//     celEmail.innerHTML = usuario.email;
+
+//     var celEmail = novaLinha.insertCell(1);
+//     celEmail.innerHTML = usuario.email;
+// }
 
 function adicionarUsuarios(objUsuario) {
     var xhr = new XMLHttpRequest();
@@ -46,6 +51,38 @@ function adicionarUsuarios(objUsuario) {
     });
 
     xhr.open("POST", "http://localhost:8080");
+
+    xhr.send(JSON.stringify(objUsuario));
+}
+
+function deleteUsuario(cod) {
+    var data = new FormData();
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            var usuarios = JSON.parse(this.responseText);
+            getUsuarios();
+        }
+    });
+
+    xhr.open("DELETE", "http://localhost:8080"+"?cod="+cod);
+
+    xhr.send(data);
+}
+
+function editarUsuario(objUsuario) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === 4) {
+            var usuarios = JSON.parse(this.responseText);
+            getUsuarios();
+        }   
+    });
+
+    xhr.open("PUT", "http://localhost:8080");
 
     xhr.send(JSON.stringify(objUsuario));
 }

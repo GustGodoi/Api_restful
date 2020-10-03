@@ -20,17 +20,19 @@
                     <td>Nome</td>
                     <td>E-mail</td>
                     <td>Login</td>
+                    <td>Opções</td>
                 </tr>
             </thead>
             <tbody id="listaUsuarios"></tbody>
         </table>
-        
+
         <hr>
         <br></br>
         
-        <form action="" method="post" onsubmit="return validarUsuario('add')">
+        <form action="" method="post" onsubmit="return validarUsuario()">
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome"/>
+            <input type="hidden" name="codigo" id="codigo" value="">
             <br><br/>
             
             <label for="email">E-mail</label>

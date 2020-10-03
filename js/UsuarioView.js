@@ -4,7 +4,6 @@ function exibirUsuarios(usuarios) {
     popularTabela(usuarios)
 }
 
-
 function limparTabela(linhas){
     for (i= linhas.length-1; i>=0; i--){
         excluirLinhaTabela(i)
@@ -36,24 +35,39 @@ function exibirLinhaTabela(usuario){
 
     let celEmail = novaLinha.insertCell(2);
     celEmail.innerHTML = usuario.email;
-
-    let celLogin = novaLinha.insertCell(3);
-    celLogin.innerHTML = usuario.login;
-
     
+    let celLogin = novaLinha.insertCell(3);
+    celLogin.innerHTML = usuario.email;
+
+    let celOpcoes = novaLinha.insertCell(4);
+    var botaoEliminar = '<button onclick="deleteUsuario(' + usuario.codigo + ')">Deletar</button>';
+    var botaoEditar = '<button onclick="preencherFormulario(\'' + usuario.codigo + '\', \'' + usuario.nome + '\', \'' + usuario.email + '\', \'' + usuario.login + '\')">Alterar</button>';
+    celOpcoes.innerHTML = botaoEliminar + botaoEditar;
+
 }
 
-function validarUsuario(acao) {
+function preencherFormulario(codigoParam, nomeParam, emailParam, loginParam) {
+    var nome = document.getElementById('nome');
+    var email = document.getElementById('email');
+    var login = document.getElementById('login');
+    var codigo = document.getElementById('codigo');
+
+    nome.value = nomeParam;
+    email.value = emailParam;
+    login.value = loginParam;
+    codigo.value = codigoParam;
+}
+
+function validarUsuario() {
 
     let nome = document.getElementById('nome');
     let email = document.getElementById('email');
     let login = document.getElementById('login');
     let senha = document.getElementById('senha');
+    let codigo = document.getElementById('codigo');
     let validarSenha = document.getElementById('senhaValidar');
 
-    if (acao === 'add') {
         let dadosValidos = true;
-        alert("Usuário inserido com sucesso!!")
         if (nome.value == '') {
             dadosValidos = false;
             alert('Preencha o campo nome');
@@ -82,16 +96,21 @@ function validarUsuario(acao) {
         }
         if (dadosValidos) {
             let objUsuario = {
+                "codigo": codigo.value,
                 "nome": nome.value,
                 "email": email.value,
                 "login": login.value,
                 "senha": senha.value,
             }
 
-            adicionarUsuarios(objUsuario);
+            if (codigo.value == "") {
+                adicionarUsuarios(objUsuario);
+            } else {
+                editarUsuario(objUsuario);
+            }  
+        
         }
-    }
-
+        
     return false;
 }
 

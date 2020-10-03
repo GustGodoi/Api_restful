@@ -10,6 +10,7 @@ use Classes\Usuario;
 //Informa para o cliente que será retornado JSON
 header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
+header('Access-Control-Allow-Methods: POST, GET, PUT, DELETE');
 
 //Captura os parâmetros
 $param = filter_input_array(INPUT_GET, FILTER_DEFAULT);
@@ -51,12 +52,10 @@ if ($method == "GET") {
     
 } else if ($method == "PUT") {
     
-    if (isset($param ['cod'])) {
         $usuario = json_decode($body);
         $usu = new Usuario();    
-        $usu->alterar($usuario->nome, $usuario->email, $usuario->login, $usuario->senha, $param ['cod']);
-        echo json_encode($param ['cod']);
-    }
+        $usu->alterar($usuario->nome, $usuario->email, $usuario->login, $usuario->senha, $usuario->codigo);
+        echo json_encode($usuario);
 
 } else if ($method == "DELETE") {
     
