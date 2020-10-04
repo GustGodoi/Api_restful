@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark nav-color">
-            <a class="navbar-brand" href="#">Inserir</a>
+            <a class="navbar-brand" href="#">Formulário</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -46,8 +46,10 @@
     </header>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-5">
                 <form action="" method="post" onsubmit="return validarUsuario('add')">
+                    <br>
+                    <h3>Formulário</h3>
                     <div class="form-group">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo"/>
@@ -55,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input class="form-control" aria-describedby="emailHelp" placeholder="Seu email" type="text" name="email" id="email">
+                        <input class="form-control" aria-describedby="emailHelp" placeholder="Seu e-mail" type="text" name="email" id="email">
                     </div>
                     <div class="form-group">
                         <label for="login">Login</label>
@@ -72,6 +74,23 @@
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
             </div>
+            
+            <div class="col-md-7">
+                <br>
+                <h3>Lista de usuários</h3>
+                <table class="table table-striped table-hover" id="tabelaDeUsuarios">
+                    <thead>
+                        <tr>
+                            <td scope="col"><b>Código</b></td>
+                            <td scope="col"><b>Nome</b></td>
+                            <td scope="col"><b>E-mail</b></td>
+                            <td scope="col"><b>Login</b></td>
+                            <td scope="col"><b>Opções</b></td>
+                        </tr>
+                    </thead>
+                    <tbody id="listaUsuarios"></tbody>
+                </table>
+            </div>     
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

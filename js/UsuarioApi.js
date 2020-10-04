@@ -21,25 +21,6 @@ function exibirUsuarios(usuarios) {
     inserirLinha(usuarios[0]);
 }
 
-// function inserirLinha(usuario) {
-//     var tabela = document.getElementById("tabelaDados");
-//     var numLinhas = tabela.rows.length;
-//     //var numCols = tabela.rows[numLinhas - 1].cells.length;
-//     var novaLinha = tabela.insertRow(numLinhas);
-
-//     var celNome = novaLinha.insertCell(0);
-//     celNome.innerHTML = usuario.nome;
-
-//     var celEmail = novaLinha.insertCell(1);
-//     celEmail.innerHTML = usuario.email;
-
-//     var celEmail = novaLinha.insertCell(1);
-//     celEmail.innerHTML = usuario.email;
-
-//     var celEmail = novaLinha.insertCell(1);
-//     celEmail.innerHTML = usuario.email;
-// }
-
 function adicionarUsuarios(objUsuario) {
     var xhr = new XMLHttpRequest();
 
@@ -47,6 +28,7 @@ function adicionarUsuarios(objUsuario) {
         if (this.readyState === 4) {
             var usuarios = JSON.parse(this.responseText);
             getUsuarios();
+            alert('Usuário inserido com sucesso')
         }   
     });
 
@@ -64,6 +46,7 @@ function deleteUsuario(cod) {
         if (this.readyState === 4) {
             var usuarios = JSON.parse(this.responseText);
             getUsuarios();
+            alert('Usuário deletado com sucesso');
         }
     });
 
@@ -79,6 +62,7 @@ function editarUsuario(objUsuario) {
         if (this.readyState === 4) {
             var usuarios = JSON.parse(this.responseText);
             getUsuarios();
+            alert('Usuário alterado com sucesso');
         }   
     });
 

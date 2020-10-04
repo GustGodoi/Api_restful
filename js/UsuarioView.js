@@ -39,11 +39,13 @@ function exibirLinhaTabela(usuario){
     let celLogin = novaLinha.insertCell(3);
     celLogin.innerHTML = usuario.email;
 
-    let celOpcoes = novaLinha.insertCell(4);
-    var botaoEliminar = '<button onclick="deleteUsuario(' + usuario.codigo + ')">Deletar</button>';
-    var botaoEditar = '<button onclick="preencherFormulario(\'' + usuario.codigo + '\', \'' + usuario.nome + '\', \'' + usuario.email + '\', \'' + usuario.login + '\')">Alterar</button>';
-    celOpcoes.innerHTML = botaoEliminar + botaoEditar;
-
+    let celDelete = novaLinha.insertCell(4);
+    var botaoEliminar = '<button class="btn btn-danger" onclick="deleteUsuario(' + usuario.codigo + ')">Deletar</button>';
+    celDelete.innerHTML = botaoEliminar;
+    
+    let celAlterar = novaLinha.insertCell(5);
+    var botaoEditar = '<button class="btn btn-success" onclick="preencherFormulario(\'' + usuario.codigo + '\', \'' + usuario.nome + '\', \'' + usuario.email + '\', \'' + usuario.login + '\')">Alterar</button>';
+    celAlterar.innerHTML = botaoEditar;
 }
 
 function preencherFormulario(codigoParam, nomeParam, emailParam, loginParam) {
